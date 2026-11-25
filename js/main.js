@@ -23,6 +23,19 @@ $("#year").textContent = new Date().getFullYear();
 let stage = null; // the 3D mascot (set after boot)
 
 /* ---------------------------------------------------------
+   HERO FRAME — the hero is designed on a 1600×900 frame;
+   --px is one design pixel scaled to fit the viewport.
+   --------------------------------------------------------- */
+const setFrame = () => {
+  const w = root.clientWidth, h = window.innerHeight;
+  const px = Math.min(w / 1600, h / 900);
+  root.style.setProperty("--px", `${px}px`);
+  root.style.setProperty("--fx", `${(w - 1600 * px) / 2}px`);
+};
+setFrame();
+window.addEventListener("resize", setFrame);
+
+/* ---------------------------------------------------------
    Mascot speech bubbles
    --------------------------------------------------------- */
 const bubbleFor = (name) => $(`[data-bubble="${name}"]`);
@@ -79,15 +92,14 @@ const ink = $(".nav__ink");
 const moveInk = (a) => {
   if (!ink) return;
   if (!a) { ink.style.width = "0px"; return; }
-  const w = Math.max(18, a.offsetWidth * 0.36);
-  ink.style.width = `${w}px`;
-  ink.style.transform = `translateX(${a.offsetLeft + (a.offsetWidth - w) / 2}px)`;
+  ink.style.width = `${a.offsetWidth}px`;
+  ink.style.transform = `translateX(${a.offsetLeft}px)`;
 };
 const activeLink = () => $(".nav__pill a.is-active");
 links.forEach((a) => a.addEventListener("mouseenter", () => moveInk(a)));
 $(".nav__pill")?.addEventListener("mouseleave", () => moveInk(activeLink()));
 window.addEventListener("resize", () => moveInk(activeLink()));
-moveInk(null);
+document.fonts?.ready.then(() => moveInk(activeLink()));
 
 let lastY = 0;
 const onScroll = () => {
@@ -103,7 +115,7 @@ onScroll();
 const sectionIO = new IntersectionObserver((entries) => {
   entries.forEach((e) => {
     if (!e.isIntersecting) return;
-    const id = e.target.id === "location" ? "contact" : e.target.id === "why" ? "visit" : e.target.id;
+    const id = { visit: "services", why: "about", faq: "reviews", location: "contact" }[e.target.id] || e.target.id;
     const link = links.find((l) => l.getAttribute("href") === `#${id}`) || null;
     links.forEach((l) => l.classList.toggle("is-active", l === link));
     moveInk(link);
@@ -122,30 +134,6 @@ burger?.addEventListener("click", () => {
   onScroll();
 });
 menu?.addEventListener("click", (e) => { if (e.target.closest("a")) burger.click(); });
-
-/* ---------------------------------------------------------
-   VIDEO MODAL — put an embed URL into the button's data-video-src
-   --------------------------------------------------------- */
-const modal = $("#video-modal");
-const play = $(".play");
-if (modal && play) {
-  const frame = $(".video-modal__frame", modal);
-  const empty = $(".video-modal__empty", modal);
-  play.addEventListener("click", () => {
-    const src = play.dataset.videoSrc;
-    if (src) {
-      empty.hidden = true;
-      const f = document.createElement("iframe");
-      Object.assign(f, { src, title: "BrightSmile clinic tour", allowFullscreen: true });
-      f.allow = "autoplay; encrypted-media; picture-in-picture";
-      frame.appendChild(f);
-    }
-    modal.showModal();
-  });
-  $(".video-modal__close", modal).addEventListener("click", () => modal.close());
-  modal.addEventListener("click", (e) => { if (e.target === modal) modal.close(); });
-  modal.addEventListener("close", () => { $("iframe", frame)?.remove(); empty.hidden = false; });
-}
 
 /* ---------------------------------------------------------
    SERVICES — treatment picker
@@ -442,30 +430,86 @@ function startStageLoop(s) {
 /* =========================================================
    MOTION
    ========================================================= */
+function initHeroParticles() {
+  const canvas = $(".hero__particles");
+  if (!canvas || reduce) return;
+  const ctx = canvas.getContext("2d");
+  let w = 0, h = 0, raf = 0;
+  const resize = () => {
+    w = canvas.width = canvas.offsetWidth;
+    h = canvas.height = canvas.offsetHeight;
+  };
+  resize();
+  window.addEventListener("resize", resize);
+  const count = 36;
+  const pts = Array.from({ length: count }, () => ({
+    x: Math.random() * (w || 1200),
+    y: Math.random() * (h || 800),
+    r: 1.2 + Math.random() * 2.4,
+    vx: (Math.random() - 0.5) * 0.28,
+    vy: -0.18 - Math.random() * 0.38,
+    a: 0.25 + Math.random() * 0.55,
+    gold: Math.random() > 0.35,
+  }));
+  const draw = () => {
+    ctx.clearRect(0, 0, w, h);
+    for (const p of pts) {
+      p.x += p.vx;
+      p.y += p.vy;
+      if (p.y < -10) { p.y = h + 10; p.x = Math.random() * w; }
+      if (p.x < -10) p.x = w + 10;
+      if (p.x > w + 10) p.x = -10;
+      ctx.beginPath();
+      ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+      ctx.fillStyle = p.gold ? `rgba(244, 196, 78, ${p.a})` : `rgba(185, 212, 160, ${p.a * 0.8})`;
+      ctx.fill();
+    }
+    raf = requestAnimationFrame(draw);
+  };
+  const io = new IntersectionObserver(([e]) => {
+    if (e.isIntersecting) { if (!raf) draw(); }
+    else { cancelAnimationFrame(raf); raf = 0; }
+  });
+  io.observe(canvas);
+}
+
+const svcL = () => $$(".hero-svc--tl, .hero-svc--bl");
+const svcR = () => $$(".hero-svc--tr, .hero-svc--br");
+const heroWide = () => matchMedia("(min-width: 1200px) and (min-aspect-ratio: 6/5)").matches;
+
 function heroIntro() {
+  initHeroParticles();
   const neon = $$(".hero__neon path");
   neon.forEach((p) => { const L = p.getTotalLength(); G.set(p, { strokeDasharray: L, strokeDashoffset: L }); });
-  const curves = $$(".hero__curves path");
-  curves.forEach((p) => { const L = p.getTotalLength(); G.set(p, { strokeDasharray: L, strokeDashoffset: L }); });
+  const tilt = heroWide() ? 9 : 0;
+  G.set(svcL(), { rotationY: tilt, transformPerspective: 900 });
+  G.set(svcR(), { rotationY: -tilt, transformPerspective: 900 });
+
+  // hero counters run with the intro
+  const counts = $$(".hero [data-count]").map((el) => {
+    const end = parseFloat(el.dataset.count), dec = parseInt(el.dataset.decimals || "0", 10), o = { v: 0 };
+    el.textContent = (0).toFixed(dec);
+    return () => G.to(o, { v: end, duration: 2, ease: "power3.out", onUpdate: () => { el.textContent = o.v.toFixed(dec); } });
+  });
 
   const tl = G.timeline({ defaults: { ease: "expo.out" } });
-  tl.from(".hero__wall", { scale: 1.14, duration: 2.6, ease: "power3.out" }, 0)
-    .from(".hero__floor", { yPercent: 30, opacity: 0, duration: 1.8 }, 0.1)
-    .from(".lamp", { yPercent: -130, duration: 2, stagger: 0.14, ease: "elastic.out(1, 0.6)" }, 0.25)
-    .to(neon, { strokeDashoffset: 0, duration: 2.2, ease: "power2.inOut", onComplete: () => $(".hero__neon").classList.add("is-on") }, 0.45)
-    .to(curves, { strokeDashoffset: 0, duration: 2.6, ease: "power2.inOut", stagger: 0.2 }, 0.5)
-    .from(".plant--front", { x: -140, rotation: -10, opacity: 0, duration: 2 }, 0.2)
-    .from(".plant--pot", { x: 90, opacity: 0, duration: 1.8 }, 0.35)
-    .from(".plant--back", { opacity: 0, duration: 1.6 }, 0.5)
-    .from(".hero__counter", { x: 140, opacity: 0, duration: 1.8 }, 0.3)
-    .from(".hero__dash", { scaleX: 0, duration: 1.1 }, 0.7)
-    .from(".hero__title .sw__i", { yPercent: 118, rotation: 4, duration: 1.4, stagger: 0.09 }, 0.75)
-    .fromTo(".hero__swoosh path", { strokeDashoffset: 220 }, { strokeDashoffset: 0, duration: 1.1, ease: "power2.inOut" }, 1.4)
-    .from("[data-hero-fade]", { y: 34, opacity: 0, duration: 1.2, stagger: 0.12 }, 1.05)
-    .from("[data-hero-card]", { x: 100, opacity: 0, rotationY: -35, transformPerspective: 900, duration: 1.5, stagger: 0.13 }, 0.95)
-    .from(".band", { yPercent: 140, duration: 1.3 }, 1.3);
+  tl.from(".hero__wall", { scale: 1.12, duration: 2.4, ease: "power3.out" }, 0)
+    .from(".hero__floor, .hs-pool", { yPercent: 20, opacity: 0, duration: 1.6 }, 0.1)
+    .from(".lamp", { yPercent: -120, duration: 1.9, stagger: 0.12, ease: "elastic.out(1, 0.6)" }, 0.2)
+    .to(neon, { strokeDashoffset: 0, duration: 2.1, ease: "power2.inOut", onComplete: () => $(".hero__neon").classList.add("is-on") }, 0.4)
+    .from(".hero__counter", { x: 140, opacity: 0, duration: 1.7 }, 0.25)
+    .from(".hs-shelves, .hs-window, .hs-frames", { opacity: 0, duration: 1.6, stagger: 0.1, ease: "power2.out" }, 0.4)
+    .from(".plant--front, .plant--side", { x: -120, rotation: -6, opacity: 0, duration: 1.8, stagger: 0.08 }, 0.2)
+    .from(".plant--back", { y: 50, opacity: 0, duration: 1.5 }, 0.45)
+    .from(".hero__title .sw__i", { yPercent: 118, rotation: 3, duration: 1.3, stagger: 0.07 }, 0.7)
+    .from(".hero__dash", { scaleX: 0, duration: 1 }, 1)
+    .from(".hero__lead", { y: 26, opacity: 0, duration: 1.1 }, 0.95)
+    .from(svcL(), { x: -60, opacity: 0, rotationY: tilt + 38, duration: 1.35, stagger: 0.14 }, 0.9)
+    .from(svcR(), { x: 60, opacity: 0, rotationY: -tilt - 38, duration: 1.35, stagger: 0.14 }, 0.95)
+    .from(".hero__stats", { y: 46, opacity: 0, duration: 1.25 }, 1.1)
+    .from(".hero__stat", { y: 14, opacity: 0, duration: 0.9, stagger: 0.07 }, 1.3)
+    .add(() => counts.forEach((run) => run()), 1.3);
   if (stage) tl.add(() => stage.intro(), 0.45);
-  else tl.add(() => setBubble("hero"), 1.6);
   return tl;
 }
 
@@ -483,6 +527,17 @@ function heroParallax() {
     layers.forEach((l) => { l.x(-nx * l.d * 70); l.y(-ny * l.d * 30); });
   });
   hero.addEventListener("pointerleave", () => layers.forEach((l) => { l.x(0); l.y(0); }));
+
+  // 3D tilt on the floating service cards (keeps their resting angle)
+  [[svcL(), 9], [svcR(), -9]].forEach(([cards, base]) => cards.forEach((card) => {
+    card.addEventListener("pointermove", (e) => {
+      const r = card.getBoundingClientRect();
+      const rx = ((e.clientY - r.top) / r.height - 0.5) * -12;
+      const ry = ((e.clientX - r.left) / r.width - 0.5) * 14;
+      G.to(card, { rotationX: rx, rotationY: (heroWide() ? base : 0) + ry, scale: 1.04, duration: 0.4, ease: "power2.out" });
+    });
+    card.addEventListener("pointerleave", () => G.to(card, { rotationX: 0, rotationY: heroWide() ? base : 0, scale: 1, duration: 0.9, ease: "elastic.out(1, 0.5)" }));
+  }));
 }
 
 function scrollScenes() {
@@ -490,16 +545,10 @@ function scrollScenes() {
 
   // hero exits with depth
   const heroST = { trigger: ".hero", start: "top top", end: "bottom top", scrub: true };
-  G.to(".hero__copy", { yPercent: -22, opacity: 0, ease: "none", scrollTrigger: heroST });
-  G.to(".hero__services", { y: -120, opacity: 0, ease: "none", scrollTrigger: heroST });
+  G.to(".hero__copy", { yPercent: -20, opacity: 0, ease: "none", scrollTrigger: heroST });
+  G.fromTo(".hero-svc", { y: 0, opacity: 1 }, { y: -90, opacity: 0, ease: "none", immediateRender: false, scrollTrigger: heroST });
+  G.fromTo(".hero__stats", { y: 0, opacity: 1 }, { y: 40, opacity: 0, ease: "none", immediateRender: false, scrollTrigger: heroST });
   G.to(".hero__scene", { yPercent: 14, ease: "none", scrollTrigger: heroST });
-
-  // marquee band
-  const band = G.to(".band__track", { xPercent: -50, repeat: -1, duration: 34, ease: "none" });
-  ST.create({
-    trigger: ".band", start: "top bottom", end: "bottom top",
-    onUpdate: (self) => G.to(band, { timeScale: 1 + Math.min(Math.abs(self.getVelocity()) / 300, 5), duration: 0.2, overwrite: true, onComplete: () => G.to(band, { timeScale: 1, duration: 1 }) }),
-  });
 
   // generic reveals
   $$("[data-reveal]").forEach((el) => {
@@ -515,6 +564,7 @@ function scrollScenes() {
 
   // counters
   $$("[data-count]").forEach((el) => {
+    if (el.closest(".hero")) return;
     const end = parseFloat(el.dataset.count);
     const dec = parseInt(el.dataset.decimals || "0", 10);
     el.textContent = (0).toFixed(dec);

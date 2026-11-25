@@ -1,0 +1,7 @@
+# local tooling / test output
+.playwright-mcp/
+node_modules/
+
+# OS files
+.DS_Store
+Thumbs.db

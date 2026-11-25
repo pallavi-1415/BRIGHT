@@ -45,7 +45,7 @@ function radialTexture(stops, size = 256) {
 /* ---------- shared materials ---------- */
 const MAT = {
   marble: () => new THREE.MeshPhysicalMaterial({ color: 0xefebe1, roughness: 0.3, clearcoat: 0.8, clearcoatRoughness: 0.12, envMapIntensity: 0.9 }),
-  marbleTop: () => new THREE.MeshPhysicalMaterial({ color: 0xe2e5d6, roughness: 0.35, clearcoat: 0.5, envMapIntensity: 0.8 }),
+  wood: () => new THREE.MeshPhysicalMaterial({ color: 0xa97b4c, roughness: 0.5, clearcoat: 0.5, clearcoatRoughness: 0.28, sheen: 0.5, sheenColor: new THREE.Color(0xffd9a0), envMapIntensity: 0.85 }),
   gold: () => new THREE.MeshStandardMaterial({ color: 0xd9a74a, metalness: 1, roughness: 0.24, emissive: 0x7a5410, emissiveIntensity: 0.35, envMapIntensity: 1.2 }),
   led: () => new THREE.MeshBasicMaterial({ color: 0xffe2a0, toneMapped: false }),
 };
@@ -90,21 +90,22 @@ function buildToothPlatform() {
   }));
   tooth.scale.set(0.92, 0.74, 0.92);
 
-  const marble = MAT.marble(), gold = MAT.gold();
-  const base = new THREE.Mesh(new THREE.CylinderGeometry(1.55, 1.6, 0.24, 128), marble); base.position.y = 0.12;
-  const band = new THREE.Mesh(new THREE.TorusGeometry(1.555, 0.03, 16, 220), gold); band.rotation.x = Math.PI / 2; band.position.y = 0.24;
-  const led = new THREE.Mesh(new THREE.TorusGeometry(1.605, 0.014, 8, 220), MAT.led()); led.rotation.x = Math.PI / 2; led.position.y = 0.025;
-  const tier = new THREE.Mesh(new THREE.CylinderGeometry(1.18, 1.22, 0.12, 128), marble); tier.position.y = 0.3;
-  const band2 = new THREE.Mesh(new THREE.TorusGeometry(1.185, 0.024, 16, 200), gold); band2.rotation.x = Math.PI / 2; band2.position.y = 0.36;
-  const inner = new THREE.Mesh(new THREE.CylinderGeometry(1.02, 1.02, 0.02, 128), MAT.marbleTop()); inner.position.y = 0.365;
-  const glow = new THREE.Mesh(new THREE.PlaneGeometry(6, 6), new THREE.MeshBasicMaterial({
+  // warm oak ring with a dark recess the tooth sits in, gold trim and an LED glow underneath
+  const wood = MAT.wood(), gold = MAT.gold();
+  const base = new THREE.Mesh(new THREE.CylinderGeometry(1.95, 2.0, 0.5, 160), wood); base.position.y = 0.25;
+  const band = new THREE.Mesh(new THREE.TorusGeometry(1.952, 0.028, 16, 260), gold); band.rotation.x = Math.PI / 2; band.position.y = 0.5;
+  const led = new THREE.Mesh(new THREE.TorusGeometry(2.0, 0.02, 8, 260), MAT.led()); led.rotation.x = Math.PI / 2; led.position.y = 0.02;
+  const tier = new THREE.Mesh(new THREE.CylinderGeometry(1.6, 1.6, 0.02, 160), new THREE.MeshStandardMaterial({ color: 0x2a1d10, roughness: 0.85 })); tier.position.y = 0.502;
+  const band2 = new THREE.Mesh(new THREE.TorusGeometry(1.6, 0.05, 16, 220), wood); band2.rotation.x = Math.PI / 2; band2.position.y = 0.51;
+  const inner = new THREE.Mesh(new THREE.TorusGeometry(1.25, 0.03, 10, 200), MAT.led()); inner.rotation.x = Math.PI / 2; inner.position.y = 0.51; inner.material.color.set(0xffc865);
+  const glow = new THREE.Mesh(new THREE.PlaneGeometry(7.5, 7.5), new THREE.MeshBasicMaterial({
     map: radialTexture([[0, "rgba(255,214,130,0.85)"], [0.32, "rgba(255,200,110,0.35)"], [0.7, "rgba(255,200,110,0)"]]),
     transparent: true, depthWrite: false, blending: THREE.AdditiveBlending, toneMapped: false,
   }));
   glow.rotation.x = -Math.PI / 2; glow.position.y = 0.004;
 
   tooth.geometry.computeBoundingBox();
-  tooth.position.y = 0.365 - tooth.geometry.boundingBox.min.y * tooth.scale.y - 0.1;
+  tooth.position.y = 0.565 - tooth.geometry.boundingBox.min.y * tooth.scale.y - 0.12;
   group.add(glow, base, band, led, tier, band2, inner, tooth);
   group.userData = { tooth, glow };
 
