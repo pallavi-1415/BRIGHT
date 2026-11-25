@@ -1,0 +1,546 @@
+- generic [active] [ref=f14e1]:
+  - generic [ref=f14e3]:
+    - paragraph [ref=f14e6]: BrightSmile
+    - paragraph [ref=f14e9]: 11%
+  - banner [ref=f14e10]:
+    - generic [ref=f14e11]:
+      - link "BrightSmile Dental Care — home" [ref=f14e12] [cursor=pointer]:
+        - /url: "#home"
+        - generic [ref=f14e16]:
+          - generic [ref=f14e17]: BrightSmile
+          - generic [ref=f14e18]: Dental Care
+      - navigation "Primary" [ref=f14e19]:
+        - link "About" [ref=f14e20] [cursor=pointer]:
+          - /url: "#about"
+        - link "Services" [ref=f14e21] [cursor=pointer]:
+          - /url: "#services"
+        - link "Your visit" [ref=f14e22] [cursor=pointer]:
+          - /url: "#visit"
+        - link "Team" [ref=f14e23] [cursor=pointer]:
+          - /url: "#team"
+        - link "Reviews" [ref=f14e24] [cursor=pointer]:
+          - /url: "#reviews"
+        - link "FAQ" [ref=f14e25] [cursor=pointer]:
+          - /url: "#faq"
+        - link "Contact" [ref=f14e26] [cursor=pointer]:
+          - /url: "#contact"
+      - generic [ref=f14e27]:
+        - link "(123) 456-7890" [ref=f14e28] [cursor=pointer]:
+          - /url: tel:+11234567890
+        - link "Book Appointment" [ref=f14e31] [cursor=pointer]:
+          - /url: "#contact"
+  - main [ref=f14e35]:
+    - generic [ref=f14e36]:
+      - generic [ref=f14e37]:
+        - generic [ref=f14e38]:
+          - heading "Healthy Smile, Happy Life!" [level=1] [ref=f14e40]:
+            - generic [ref=f14e41]: Healthy
+            - generic [ref=f14e43]: Smile,
+            - generic [ref=f14e46]: Happy
+            - generic [ref=f14e48]: Life!
+          - paragraph [ref=f14e53]: Gentle, modern dentistry for the whole family, in a clinic that feels calm from the moment you walk in.
+          - generic [ref=f14e54]:
+            - link "Book Appointment" [ref=f14e55] [cursor=pointer]:
+              - /url: "#contact"
+            - button "Watch Video" [ref=f14e59] [cursor=pointer]
+          - generic [ref=f14e64]:
+            - generic [aria-hidden] [ref=f14e65]:
+              - generic [ref=f14e66]: A
+              - generic [ref=f14e67]: M
+              - generic [ref=f14e68]: J
+              - generic [ref=f14e69]: +
+            - generic [ref=f14e70]:
+              - generic [ref=f14e71]: "4.9"
+              - text: Google rating · 25K+ happy smiles
+        - generic [ref=f14e74]:
+          - img "BrightSmile's mascot standing on a giant tooth" [ref=f14e75] [cursor=pointer]
+          - paragraph: Hi! Ready for a brighter smile? ✨
+        - list "Featured services" [ref=f14e76]:
+          - listitem [ref=f14e77]:
+            - link "Cosmetic Dentistry" [ref=f14e78] [cursor=pointer]:
+              - /url: "#services"
+          - listitem [ref=f14e86]:
+            - link "Dental Implants" [ref=f14e87] [cursor=pointer]:
+              - /url: "#services"
+          - listitem [ref=f14e95]:
+            - link "Orthodontics" [ref=f14e96] [cursor=pointer]:
+              - /url: "#services"
+      - generic [ref=f14e105]:
+        - generic [ref=f14e106]:
+          - generic [ref=f14e107]: Cosmetic Dentistry
+          - generic [ref=f14e110]: Dental Implants
+          - generic [ref=f14e113]: Orthodontics
+          - generic [ref=f14e116]: Teeth Whitening
+          - generic [ref=f14e119]: Family Care
+          - generic [ref=f14e122]: 3D Smile Scans
+        - generic [ref=f14e125]:
+          - generic [ref=f14e126]: Cosmetic Dentistry
+          - generic [ref=f14e129]: Dental Implants
+          - generic [ref=f14e132]: Orthodontics
+          - generic [ref=f14e135]: Teeth Whitening
+          - generic [ref=f14e138]: Family Care
+          - generic [ref=f14e141]: 3D Smile Scans
+    - generic [ref=f14e145]:
+      - generic [ref=f14e146]:
+        - generic [ref=f14e151]:
+          - paragraph: Welcome in! Let me show you around.
+          - generic [ref=f14e152] [cursor=pointer]
+        - generic [ref=f14e157]:
+          - generic [ref=f14e158]: 15+
+          - generic [ref=f14e159]: Years of gentle care
+        - generic [ref=f14e164]:
+          - generic [ref=f14e165]: 4.9 / 5
+          - generic [ref=f14e166]: Google rating
+      - generic [ref=f14e167]:
+        - generic [ref=f14e168]: About BrightSmile
+        - heading "A calm, modern clinic where every smile feels at home." [level=2] [ref=f14e170]:
+          - generic [ref=f14e171]: A
+          - generic [ref=f14e173]: calm,
+          - generic [ref=f14e175]: modern
+          - generic [ref=f14e177]: clinic
+          - generic [ref=f14e179]: where
+          - generic [ref=f14e181]: every
+          - generic [ref=f14e183]:
+            - generic [ref=f14e184]: smile
+            - generic [ref=f14e186]: feels
+            - generic [ref=f14e188]: at
+            - generic [ref=f14e190]: home.
+        - paragraph [ref=f14e192]: For more than fifteen years we've paired the latest dental technology with an unhurried, gentle approach. From a child's first check-up to a full smile makeover, you'll always know what's happening and why.
+        - list [ref=f14e193]:
+          - listitem [ref=f14e194]:
+            - generic [ref=f14e198]:
+              - heading "Digital & 3D imaging" [level=3] [ref=f14e199]
+              - paragraph [ref=f14e200]: Precise, low-radiation diagnostics.
+          - listitem [ref=f14e201]:
+            - generic [ref=f14e205]:
+              - heading "Comfort-first care" [level=3] [ref=f14e206]
+              - paragraph [ref=f14e207]: Numbing gel, calm rooms, no rushing.
+          - listitem [ref=f14e208]:
+            - generic [ref=f14e212]:
+              - heading "Family friendly" [level=3] [ref=f14e213]
+              - paragraph [ref=f14e214]: Every age, under one roof.
+          - listitem [ref=f14e215]:
+            - generic [ref=f14e219]:
+              - heading "Clear pricing" [level=3] [ref=f14e220]
+              - paragraph [ref=f14e221]: Upfront plans before treatment.
+        - generic [ref=f14e222]:
+          - link "Explore treatments" [ref=f14e223] [cursor=pointer]:
+            - /url: "#services"
+          - link "Call us anytime (123) 456-7890" [ref=f14e227] [cursor=pointer]:
+            - /url: tel:+11234567890
+            - generic [ref=f14e231]:
+              - generic [ref=f14e232]: Call us anytime
+              - text: (123) 456-7890
+    - generic [ref=f14e234]:
+      - generic [ref=f14e235]:
+        - generic [ref=f14e236]: Our Services
+        - heading "Every treatment, explained before it starts." [level=2] [ref=f14e238]:
+          - generic [ref=f14e239]: Every
+          - generic [ref=f14e241]: treatment,
+          - generic [ref=f14e243]:
+            - generic [ref=f14e244]: explained
+            - generic [ref=f14e246]: before
+            - generic [ref=f14e248]: it
+            - generic [ref=f14e250]: starts.
+        - paragraph [ref=f14e252]: Tap a treatment to see how long it takes, how many visits you'll need and exactly what you'll feel.
+        - tablist "Treatments" [ref=f14e253]:
+          - tab "Cosmetic dentistry" [selected] [ref=f14e254] [cursor=pointer]
+          - tab "Dental implants" [ref=f14e260] [cursor=pointer]
+          - tab "Orthodontics" [ref=f14e266] [cursor=pointer]
+          - tab "Teeth whitening" [ref=f14e272] [cursor=pointer]
+          - tab "General check-up" [ref=f14e278] [cursor=pointer]
+          - tab "Kids' dentistry" [ref=f14e284] [cursor=pointer]
+        - tabpanel [ref=f14e290]:
+          - generic [ref=f14e291]:
+            - generic [ref=f14e292]:
+              - heading "Cosmetic dentistry" [level=3] [ref=f14e293]
+              - paragraph [ref=f14e294]: Veneers, bonding and smile design tailored to your face, with a digital preview before anything changes.
+              - generic [ref=f14e295]:
+                - generic [ref=f14e296]:
+                  - term [ref=f14e297]: Time in chair
+                  - definition [ref=f14e298]:
+                    - generic [ref=f14e301]: 60–90 min
+                - generic [ref=f14e302]:
+                  - term [ref=f14e303]: Visits
+                  - definition [ref=f14e304]:
+                    - generic [ref=f14e307]: 1–2
+            - generic [ref=f14e308]:
+              - paragraph [ref=f14e309]: What to expect
+              - list [ref=f14e310]:
+                - listitem [ref=f14e311]: A digital smile preview on day one
+                - listitem [ref=f14e312]: Shade-matched to your natural teeth
+                - listitem [ref=f14e313]: Little to no drilling for bonding
+              - link "Book cosmetic dentistry" [ref=f14e314] [cursor=pointer]:
+                - /url: "#contact"
+      - generic [ref=f14e318]:
+        - paragraph: Cosmetic dentistry? Great pick!
+        - generic [ref=f14e319] [cursor=pointer]
+    - generic [ref=f14e322]:
+      - generic [ref=f14e323]:
+        - generic [ref=f14e324]: Your visit
+        - heading "Your smile journey in four easy steps." [level=2] [ref=f14e326]:
+          - generic [ref=f14e327]: Your
+          - generic [ref=f14e329]: smile
+          - generic [ref=f14e331]: journey
+          - generic [ref=f14e333]: in
+          - generic [ref=f14e335]:
+            - generic [ref=f14e336]: four
+            - generic [ref=f14e338]: easy
+            - generic [ref=f14e340]: steps.
+        - paragraph [ref=f14e342]: No surprises. Here's the whole visit, in order.
+        - list [aria-hidden] [ref=f14e343]:
+          - listitem [ref=f14e344]:
+            - generic [ref=f14e346]: Consult
+          - listitem [ref=f14e347]:
+            - generic [ref=f14e349]: Scan
+          - listitem [ref=f14e350]:
+            - generic [ref=f14e352]: Treat
+          - listitem [ref=f14e353]:
+            - generic [ref=f14e355]: Smile
+        - generic [ref=f14e356]:
+          - paragraph: First, we just talk. No tools yet!
+          - generic [ref=f14e357] [cursor=pointer]
+      - list [ref=f14e359]:
+        - listitem [ref=f14e360]:
+          - generic [ref=f14e361]: "1"
+          - heading "Friendly consultation" [level=3] [ref=f14e362]
+          - paragraph [ref=f14e363]: A relaxed first visit with a full check-up, digital X-rays and time for every question you have.
+          - paragraph [ref=f14e364]: About 30 minutes, sitting upright and comfy.
+        - listitem [ref=f14e367]:
+          - generic [ref=f14e368]: "2"
+          - heading "3D smile scan" [level=3] [ref=f14e369]
+          - paragraph [ref=f14e370]: No messy moulds. Our scanner maps your teeth in minutes and shows you a preview of the result.
+          - paragraph [ref=f14e371]: You see everything we see, on the screen.
+        - listitem [ref=f14e374]:
+          - generic [ref=f14e375]: "3"
+          - heading "Gentle treatment" [level=3] [ref=f14e376]
+          - paragraph [ref=f14e377]: Minimally invasive care with numbing gel, calm music and breaks whenever you want them.
+          - paragraph [ref=f14e378]: Raise a hand anytime and we pause.
+        - listitem [ref=f14e381]:
+          - generic [ref=f14e382]: "4"
+          - heading "Bright results" [level=3] [ref=f14e383]
+          - paragraph [ref=f14e384]: Leave with a healthier, brighter smile and a simple aftercare plan to keep it shining.
+          - paragraph [ref=f14e385]: We check in a few days later to see how you feel.
+    - generic [ref=f14e389]:
+      - generic [ref=f14e390]:
+        - paragraph: Numbers don't lie, friends!
+        - generic [ref=f14e391] [cursor=pointer]
+      - generic [ref=f14e392]:
+        - generic [ref=f14e393]: Why BrightSmile
+        - heading "Why thousands of families trust their smiles to us." [level=2] [ref=f14e395]:
+          - generic [ref=f14e396]: Why
+          - generic [ref=f14e398]: thousands
+          - generic [ref=f14e400]: of
+          - generic [ref=f14e402]: families
+          - generic [ref=f14e404]:
+            - generic [ref=f14e405]: trust
+            - generic [ref=f14e407]: their
+            - generic [ref=f14e409]: smiles
+          - generic [ref=f14e411]: to
+          - generic [ref=f14e413]: us.
+        - paragraph [ref=f14e415]: Experienced specialists, modern technology and a genuinely gentle approach, so every visit feels easy.
+        - generic [ref=f14e416]:
+          - generic [ref=f14e417]:
+            - generic [ref=f14e418]: 15+
+            - generic [ref=f14e419]: Years of experience
+          - generic [ref=f14e420]:
+            - generic [ref=f14e421]: 25K+
+            - generic [ref=f14e422]: Happy patients
+          - generic [ref=f14e423]:
+            - generic [ref=f14e424]: "4.9"
+            - generic [ref=f14e425]: Google rating
+          - generic [ref=f14e426]:
+            - generic [ref=f14e427]: "6"
+            - generic [ref=f14e428]: Specialist services
+        - generic [ref=f14e429]:
+          - generic [ref=f14e430]:
+            - heading "Advanced technology" [level=3] [ref=f14e434]
+            - paragraph [ref=f14e435]: Digital X-rays and 3D scans for precise care.
+          - generic [ref=f14e436]:
+            - heading "Flexible hours" [level=3] [ref=f14e440]
+            - paragraph [ref=f14e441]: Early, late and Saturday appointments.
+          - generic [ref=f14e442]:
+            - heading "Strict hygiene" [level=3] [ref=f14e446]
+            - paragraph [ref=f14e447]: Sterilisation you can see and trust.
+    - generic [ref=f14e449]:
+      - generic [ref=f14e450]:
+        - generic [ref=f14e451]: Our Team
+        - heading "Meet the people behind your smile." [level=2] [ref=f14e453]:
+          - generic [ref=f14e454]: Meet
+          - generic [ref=f14e456]: the
+          - generic [ref=f14e458]: people
+          - generic [ref=f14e460]: behind
+          - generic [ref=f14e462]:
+            - generic [ref=f14e463]: your
+            - generic [ref=f14e465]: smile.
+        - paragraph [ref=f14e467]: You see the same dentist every visit, so you never have to repeat your story.
+        - list [ref=f14e468]:
+          - listitem [ref=f14e469]:
+            - generic [aria-hidden] [ref=f14e470]: EC
+            - generic [ref=f14e471]:
+              - heading "Dr. Emily Carter" [level=3] [ref=f14e472]
+              - paragraph [ref=f14e473]: Lead cosmetic dentist
+              - paragraph [ref=f14e474]: Loves a natural-looking smile makeover and explains every step.
+            - generic [ref=f14e475]:
+              - list [ref=f14e476]:
+                - listitem [ref=f14e477]: Veneers
+                - listitem [ref=f14e478]: Smile design
+              - link "Book with Emily" [ref=f14e479] [cursor=pointer]:
+                - /url: "#contact"
+          - listitem [ref=f14e482]:
+            - generic [aria-hidden] [ref=f14e483]: JP
+            - generic [ref=f14e484]:
+              - heading "Dr. James Patel" [level=3] [ref=f14e485]
+              - paragraph [ref=f14e486]: Orthodontist
+              - paragraph [ref=f14e487]: Straightens smiles with braces and clear aligners, patiently.
+            - generic [ref=f14e488]:
+              - list [ref=f14e489]:
+                - listitem [ref=f14e490]: Aligners
+                - listitem [ref=f14e491]: Braces
+              - link "Book with James" [ref=f14e492] [cursor=pointer]:
+                - /url: "#contact"
+          - listitem [ref=f14e495]:
+            - generic [aria-hidden] [ref=f14e496]: SR
+            - generic [ref=f14e497]:
+              - heading "Dr. Sofia Romero" [level=3] [ref=f14e498]
+              - paragraph [ref=f14e499]: Implant specialist
+              - paragraph [ref=f14e500]: Calm hands for complex cases and anxious patients alike.
+            - generic [ref=f14e501]:
+              - list [ref=f14e502]:
+                - listitem [ref=f14e503]: Implants
+                - listitem [ref=f14e504]: Nervous patients
+              - link "Book with Sofia" [ref=f14e505] [cursor=pointer]:
+                - /url: "#contact"
+      - generic [ref=f14e508]:
+        - paragraph: Meet my favourite humans!
+        - generic [ref=f14e509] [cursor=pointer]
+    - generic [ref=f14e511]:
+      - generic [ref=f14e512]:
+        - paragraph: People say the nicest things!
+        - generic [ref=f14e513] [cursor=pointer]
+      - generic [ref=f14e514]:
+        - generic [ref=f14e515]: Reviews
+        - heading "Smiles that speak for themselves." [level=2] [ref=f14e517]:
+          - generic [ref=f14e518]: Smiles
+          - generic [ref=f14e520]: that
+          - generic [ref=f14e522]:
+            - generic [ref=f14e523]: speak
+            - generic [ref=f14e525]: for
+            - generic [ref=f14e527]: themselves.
+        - generic [ref=f14e529]:
+          - generic [ref=f14e530]:
+            - generic [ref=f14e531]: "4.9"
+            - generic [ref=f14e532]:
+              - generic "5 out of 5 stars" [ref=f14e533]
+              - generic [ref=f14e544]: Average Google rating
+          - generic [ref=f14e545]:
+            - button "Previous review" [disabled]
+            - button "Next review" [ref=f14e546] [cursor=pointer]
+        - generic [ref=f14e550]:
+          - figure "Sarah K. Cosmetic patient" [ref=f14e551]:
+            - blockquote [ref=f14e563]: "\"I used to dread the dentist. The team made me feel completely at ease. I actually look forward to my visits now.\""
+            - generic [ref=f14e564]:
+              - generic [ref=f14e565]: Sarah K.
+              - text: Cosmetic patient
+          - figure "David M. Implant patient" [ref=f14e566]:
+            - blockquote [ref=f14e578]: "\"My implant looks and feels completely natural. Clear pricing, no surprises, and amazing aftercare.\""
+            - generic [ref=f14e579]:
+              - generic [ref=f14e580]: David M.
+              - text: Implant patient
+          - figure "Priya L. Parent of two" [ref=f14e581]:
+            - blockquote [ref=f14e593]: "\"Both my kids love coming here. Calm rooms, patient staff, and stickers at the end. Total win.\""
+            - generic [ref=f14e594]:
+              - generic [ref=f14e595]: Priya L.
+              - text: Parent of two
+          - figure "Tom R. Aligner patient" [ref=f14e596]:
+            - blockquote [ref=f14e608]: "\"The 3D scan showed me my new smile before we even started. Six months later, I can't stop smiling.\""
+            - generic [ref=f14e609]:
+              - generic [ref=f14e610]: Tom R.
+              - text: Aligner patient
+          - figure "Chris W. Whitening patient" [ref=f14e611]:
+            - blockquote [ref=f14e623]: "\"Whitening results were incredible and my teeth weren't sensitive at all. Highly recommend!\""
+            - generic [ref=f14e624]:
+              - generic [ref=f14e625]: Chris W.
+              - text: Whitening patient
+          - figure "Marco G. Veneers patient" [ref=f14e626]:
+            - blockquote [ref=f14e638]: "\"From reception to treatment, everything felt premium yet relaxed. My new go-to dentist.\""
+            - generic [ref=f14e639]:
+              - generic [ref=f14e640]: Marco G.
+              - text: Veneers patient
+    - generic [ref=f14e644]:
+      - generic [ref=f14e645]:
+        - generic [ref=f14e646]: FAQ
+        - heading "Questions? We've got answers." [level=2] [ref=f14e648]:
+          - generic [ref=f14e649]: Questions?
+          - generic [ref=f14e651]:
+            - generic [ref=f14e652]: We've
+            - generic [ref=f14e654]: got
+            - generic [ref=f14e656]: answers.
+        - generic [ref=f14e658]:
+          - group [ref=f14e659]:
+            - generic "Is treatment at BrightSmile painful?" [ref=f14e660] [cursor=pointer]
+            - paragraph [ref=f14e667]: "We use a comfort-first approach: numbing gel before injections, modern minimally invasive techniques and calm, quiet rooms. Most patients tell us it was far easier than they expected."
+          - group [ref=f14e668]:
+            - generic "Do you accept dental insurance?" [ref=f14e669] [cursor=pointer]
+          - group [ref=f14e674]:
+            - generic "How often should I have a check-up?" [ref=f14e675] [cursor=pointer]
+          - group [ref=f14e680]:
+            - generic "Do you treat children?" [ref=f14e681] [cursor=pointer]
+          - group [ref=f14e686]:
+            - generic "Can I book an emergency appointment?" [ref=f14e687] [cursor=pointer]
+      - generic [ref=f14e692]:
+        - paragraph: Totally fair question. Comfort comes first here!
+        - generic [ref=f14e693] [cursor=pointer]
+    - generic [ref=f14e695]:
+      - generic [ref=f14e696]:
+        - generic [ref=f14e697]: Book a visit
+        - heading "Ready for your brightest smile?" [level=2] [ref=f14e699]:
+          - generic [ref=f14e700]: Ready
+          - generic [ref=f14e702]: for
+          - generic [ref=f14e704]: your
+          - generic [ref=f14e706]:
+            - generic [ref=f14e707]: brightest
+            - generic [ref=f14e709]: smile?
+        - paragraph [ref=f14e711]: Booking takes under a minute. We'll confirm your time within one working day.
+        - group "Make your visit comfier (optional)" [ref=f14e712]:
+          - generic [ref=f14e713]:
+            - text: Make your visit comfier
+            - emphasis [ref=f14e714]: (optional)
+          - generic [ref=f14e715]:
+            - button "Noise-cancelling headphones" [ref=f14e716] [cursor=pointer]
+            - button "Cosy blanket" [ref=f14e717] [cursor=pointer]
+            - button "Sunglasses for the light" [ref=f14e718] [cursor=pointer]
+            - button "Extra numbing gel" [ref=f14e719] [cursor=pointer]
+            - button "Talk me through it" [ref=f14e720] [cursor=pointer]
+            - button "Quiet room" [ref=f14e721] [cursor=pointer]
+      - generic [ref=f14e722]:
+        - paragraph: Pick your comfort extras, I'll pack them!
+        - generic [ref=f14e723] [cursor=pointer]
+      - generic [ref=f14e724]:
+        - heading "Request an appointment" [level=3] [ref=f14e725]
+        - generic [ref=f14e726]:
+          - generic [ref=f14e727]:
+            - generic [ref=f14e728]: Full name
+            - textbox "Full name" [ref=f14e729]:
+              - /placeholder: Jane Smith
+          - generic [ref=f14e730]:
+            - generic [ref=f14e731]: Phone
+            - textbox "Phone" [ref=f14e732]:
+              - /placeholder: (123) 456-7890
+        - generic [ref=f14e733]:
+          - generic [ref=f14e734]: Email
+          - textbox "Email" [ref=f14e735]:
+            - /placeholder: jane@email.com
+        - generic [ref=f14e736]:
+          - generic [ref=f14e737]:
+            - generic [ref=f14e738]: Treatment
+            - combobox "Treatment" [ref=f14e739]:
+              - option "Select a treatment" [disabled] [selected]
+              - option "Cosmetic dentistry"
+              - option "Dental implants"
+              - option "Orthodontics"
+              - option "Teeth whitening"
+              - option "General check-up"
+              - option "Kids' dentistry"
+          - generic [ref=f14e740]:
+            - generic [ref=f14e741]: Preferred date
+            - textbox "Preferred date" [ref=f14e742]
+        - generic [ref=f14e743]:
+          - generic [ref=f14e744]:
+            - text: Notes
+            - emphasis [ref=f14e745]: (optional)
+          - textbox "Notes (optional)" [ref=f14e746]:
+            - /placeholder: Anything we should know?
+        - button "Request appointment" [ref=f14e747] [cursor=pointer]
+        - status [ref=f14e751]
+    - generic [ref=f14e752]:
+      - generic [ref=f14e753]:
+        - generic [ref=f14e754]:
+          - generic [ref=f14e755]: Visit us
+          - heading "Come say hello." [level=2] [ref=f14e757]:
+            - generic [ref=f14e758]: Come
+            - generic [ref=f14e760]: say
+            - generic [ref=f14e762]: hello.
+          - paragraph [ref=f14e765]: Right in the heart of town, easy to find and easy to reach.
+          - generic [ref=f14e766]:
+            - link "Get directions" [ref=f14e767] [cursor=pointer]:
+              - /url: https://www.google.com/maps/search/?api=1&query=123+Smile+Avenue
+            - link "(123) 456-7890" [ref=f14e771] [cursor=pointer]:
+              - /url: tel:+11234567890
+        - generic [ref=f14e775]:
+          - paragraph: See you soon!
+          - generic [ref=f14e776] [cursor=pointer]
+      - generic [ref=f14e777]:
+        - article [ref=f14e778]:
+          - generic [ref=f14e779]:
+            - heading "Opening hours" [level=3] [ref=f14e780]
+            - generic [ref=f14e781]: Open now · until 7:00 pm
+          - generic [ref=f14e782]:
+            - generic [ref=f14e783]:
+              - term [ref=f14e784]: Monday
+              - definition [ref=f14e785]: 8:00 am – 7:00 pm
+            - generic [ref=f14e786]:
+              - term [ref=f14e787]: Tuesday
+              - definition [ref=f14e788]: 8:00 am – 7:00 pm
+            - generic [ref=f14e789]:
+              - term [ref=f14e790]: Wednesday
+              - definition [ref=f14e791]: 8:00 am – 7:00 pm
+            - generic [ref=f14e792]:
+              - term [ref=f14e793]: Thursday
+              - definition [ref=f14e794]: 8:00 am – 7:00 pm
+            - generic [ref=f14e795]:
+              - term [ref=f14e796]: Friday
+              - definition [ref=f14e797]: 8:00 am – 7:00 pm
+            - generic [ref=f14e798]:
+              - term [ref=f14e799]: Saturday
+              - definition [ref=f14e800]: 9:00 am – 2:00 pm
+            - generic [ref=f14e801]:
+              - term [ref=f14e802]: Sunday
+              - definition [ref=f14e803]: Closed
+        - article "Map showing BrightSmile on Smile Avenue" [ref=f14e804]:
+          - img [aria-hidden] [ref=f14e805]:
+            - generic [ref=f14e811]: Smile Park
+            - generic [ref=f14e812]: Smile Avenue
+            - generic [ref=f14e813]: Oak Street
+          - generic [ref=f14e817]: BrightSmile
+        - article [ref=f14e818]:
+          - heading "Talk to us" [level=3] [ref=f14e819]
+          - link "Call or text (123) 456-7890" [ref=f14e820] [cursor=pointer]:
+            - /url: tel:+11234567890
+            - generic [ref=f14e824]:
+              - generic [ref=f14e825]: Call or text
+              - text: (123) 456-7890
+          - link "Email hello@brightsmile.example" [ref=f14e826] [cursor=pointer]:
+            - /url: mailto:hello@brightsmile.example
+            - generic [ref=f14e830]:
+              - generic [ref=f14e831]: Email
+              - text: hello@brightsmile.example
+          - paragraph [ref=f14e832]:
+            - generic [ref=f14e836]:
+              - generic [ref=f14e837]: Address
+              - text: 123 Smile Avenue, Your City
+      - generic [ref=f14e838]:
+        - link "BrightSmile Dental Care" [ref=f14e839] [cursor=pointer]:
+          - /url: "#home"
+          - generic [ref=f14e843]:
+            - generic [ref=f14e844]: BrightSmile
+            - generic [ref=f14e845]: Dental Care
+        - navigation "Footer" [ref=f14e846]:
+          - link "Services" [ref=f14e847] [cursor=pointer]:
+            - /url: "#services"
+          - link "Your visit" [ref=f14e848] [cursor=pointer]:
+            - /url: "#visit"
+          - link "Team" [ref=f14e849] [cursor=pointer]:
+            - /url: "#team"
+          - link "FAQ" [ref=f14e850] [cursor=pointer]:
+            - /url: "#faq"
+          - link "Book" [ref=f14e851] [cursor=pointer]:
+            - /url: "#contact"
+        - generic [ref=f14e852]:
+          - link "Instagram" [ref=f14e853] [cursor=pointer]:
+            - /url: "#"
+          - link "Facebook" [ref=f14e856] [cursor=pointer]:
+            - /url: "#"
+          - link "LinkedIn" [ref=f14e859] [cursor=pointer]:
+            - /url: "#"
+        - paragraph [ref=f14e862]: © 2026 BrightSmile Dental Care

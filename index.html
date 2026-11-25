@@ -1,0 +1,678 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>BrightSmile Dental Care — Healthy Smile, Happy Life</title>
+  <meta name="description" content="BrightSmile Dental Care: gentle, modern dentistry for the whole family. Cosmetic dentistry, implants, orthodontics, whitening and more." />
+  <meta name="theme-color" content="#7d9369" />
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700&family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/styles.css" />
+
+  <script>
+    document.documentElement.classList.add("js");
+    // failsafe: if the scripts never boot (offline CDN, old browser), show the static page
+    setTimeout(function () { if (!window.__bsBoot) document.documentElement.classList.add("no-3d", "is-loaded"); }, 8000);
+  </script>
+  <script type="importmap">
+    {
+      "imports": {
+        "three": "https://cdn.jsdelivr.net/npm/three@0.170.0/build/three.module.js",
+        "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.170.0/examples/jsm/"
+      }
+    }
+  </script>
+</head>
+<body>
+
+<!-- =========================================================
+     ICON SPRITE
+     ========================================================= -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <linearGradient id="g-gold" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#F6DB8F" /><stop offset=".55" stop-color="#E2B04F" /><stop offset="1" stop-color="#C38E2C" /></linearGradient>
+    <linearGradient id="g-brand" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#F3D27A" /><stop offset="1" stop-color="#7FA85A" /></linearGradient>
+    <linearGradient id="g-green" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#5E8E4A" /><stop offset="1" stop-color="#2F5A2A" /></linearGradient>
+    <linearGradient id="g-leaf" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#7BA75A" /><stop offset="1" stop-color="#2F5626" /></linearGradient>
+    <linearGradient id="g-leaf-dark" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#55803F" /><stop offset="1" stop-color="#1F3D1B" /></linearGradient>
+  </defs>
+  <symbol id="i-tooth" viewBox="0 0 48 48"><path d="M24 9c-3-2.4-9-3.4-12 .6-2.8 3.8-1.6 9 .2 13 1.4 3.2 1.6 8 2.6 12.2.6 2.4 2.6 2.6 3.4.2.9-2.8 1.4-7 3.2-7s2.3 4.2 3.2 7c.8 2.4 2.8 2.2 3.4-.2 1-4.2 1.2-9 2.6-12.2 1.8-4 3-9.2.2-13C33 5.6 27 6.6 24 9z" /></symbol>
+  <symbol id="i-sparkle" viewBox="0 0 24 24"><path d="M12 0c.6 5.6 2.4 8.6 12 12-9.6 3.4-11.4 6.4-12 12-.6-5.6-2.4-8.6-12-12 9.6-3.4 11.4-6.4 12-12z" /></symbol>
+  <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" /></symbol>
+  <symbol id="i-arrow-up" viewBox="0 0 24 24"><path d="M7 17L17 7M9 7h8v8" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" /></symbol>
+  <symbol id="i-calendar" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="16" rx="3" /><path d="M3 10h18M8 3v4M16 3v4" /><path d="M7.5 14h1M11.5 14h1M15.5 14h1M7.5 17.5h1M11.5 17.5h1" stroke-width="2.4" /></g></symbol>
+  <symbol id="i-phone" viewBox="0 0 24 24"><path d="M6.6 10.8a15.1 15.1 0 0 0 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1A17 17 0 0 1 3 4c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.3 0 .7-.2 1z" fill="currentColor" /></symbol>
+  <symbol id="i-mail" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="3" /><path d="M4 7l8 6 8-6" stroke-linecap="round" /></g></symbol>
+  <symbol id="i-pin" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2"><path d="M12 21s-7-6.2-7-11.5A7 7 0 0 1 19 9.5C19 14.8 12 21 12 21z" stroke-linejoin="round" /><circle cx="12" cy="9.5" r="2.5" /></g></symbol>
+  <symbol id="i-clock" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9" /><path d="M12 7v5l3 2" /></g></symbol>
+  <symbol id="i-check" viewBox="0 0 24 24"><path d="M5 12.5l4.2 4.2L19 7" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" /></symbol>
+  <symbol id="i-star" viewBox="0 0 24 24"><path d="M12 2.8l2.8 5.8 6.3.9-4.6 4.4 1.1 6.3L12 17.2l-5.6 3 1.1-6.3L2.9 9.5l6.3-.9z" fill="currentColor" /></symbol>
+  <symbol id="i-play" viewBox="0 0 24 24"><path d="M9 7.2v9.6c0 .6.7 1 1.2.6l7.4-4.8c.4-.3.4-.9 0-1.2L10.2 6.6C9.7 6.3 9 6.6 9 7.2z" fill="currentColor" /></symbol>
+  <symbol id="i-shield" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M12 2.5l8 3v6.2c0 4.8-3.3 8.6-8 9.8-4.7-1.2-8-5-8-9.8V5.5z" /><path d="M8.5 12l2.4 2.4L15.5 9.8" stroke-linecap="round" /></g></symbol>
+  <symbol id="i-plus" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" /></symbol>
+  <symbol id="i-implant" viewBox="0 0 48 48"><path d="M14.5 9.5c2.4-3.2 6.5-3 9.5-1 3-2 7.1-2.2 9.5 1 2.2 3 1.4 7.4-.8 10.5H15.3c-2.2-3.1-3-7.5-.8-10.5z" /><path d="M19.5 22h9v15.5a4.5 4.5 0 0 1-9 0z" opacity=".6" /><path d="M18 26.5h12M18 31h12M18.5 35.5h11" stroke="#fff" stroke-width="1.8" stroke-linecap="round" opacity=".7" /></symbol>
+  <symbol id="i-braces" viewBox="0 0 48 48"><path d="M24 9c-3-2.4-9-3.4-12 .6-2.8 3.8-1.6 9 .2 13 1.4 3.2 1.6 8 2.6 12.2.6 2.4 2.6 2.6 3.4.2.9-2.8 1.4-7 3.2-7s2.3 4.2 3.2 7c.8 2.4 2.8 2.2 3.4-.2 1-4.2 1.2-9 2.6-12.2 1.8-4 3-9.2.2-13C33 5.6 27 6.6 24 9z" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linejoin="round" /><path d="M3 19h42" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" /><rect x="11" y="15.5" width="7" height="7" rx="1.6" /><rect x="30" y="15.5" width="7" height="7" rx="1.6" /></symbol>
+  <symbol id="i-whiten" viewBox="0 0 48 48"><path d="M24 11c-3-2.4-9-3.4-12 .6-2.8 3.8-1.6 9 .2 13 1.4 3.2 1.6 8 2.6 12.2.6 2.4 2.6 2.6 3.4.2.9-2.8 1.4-7 3.2-7s2.3 4.2 3.2 7c.8 2.4 2.8 2.2 3.4-.2 1-4.2 1.2-9 2.6-12.2 1.8-4 3-9.2.2-13C33 7.6 27 8.6 24 11z" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linejoin="round" /><path d="M38 2c.4 3.6 1.6 5.5 7.6 7.6C39.6 11.7 38.4 13.6 38 17.2c-.4-3.6-1.6-5.5-7.6-7.6C36.4 7.5 37.6 5.6 38 2z" /></symbol>
+  <symbol id="i-kid" viewBox="0 0 48 48"><g fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"><circle cx="24" cy="25" r="15" /><path d="M17.5 29c1.8 2.6 4 3.8 6.5 3.8s4.7-1.2 6.5-3.8" /><path d="M24 10c0-3 2-5 5-5" /></g><circle cx="18.5" cy="22" r="2.2" /><circle cx="29.5" cy="22" r="2.2" /></symbol>
+  <symbol id="i-scan" viewBox="0 0 48 48"><g fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"><path d="M6 15V9a3 3 0 0 1 3-3h6M33 6h6a3 3 0 0 1 3 3v6M42 33v6a3 3 0 0 1-3 3h-6M15 42H9a3 3 0 0 1-3-3v-6" /><path d="M10 24h28" /></g></symbol>
+  <symbol id="i-heart" viewBox="0 0 48 48"><path d="M24 41s-15-8.6-15-20.4C9 14.2 13.4 10 18.6 10c2.6 0 4.4 1.2 5.4 2.8 1-1.6 2.8-2.8 5.4-2.8C34.6 10 39 14.2 39 20.6 39 32.4 24 41 24 41z" /></symbol>
+  <symbol id="i-chat" viewBox="0 0 48 48"><path d="M8 12a5 5 0 0 1 5-5h22a5 5 0 0 1 5 5v15a5 5 0 0 1-5 5H21l-8 7v-7a5 5 0 0 1-5-5z" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linejoin="round" /><circle cx="17" cy="19.5" r="2.3" /><circle cx="24" cy="19.5" r="2.3" /><circle cx="31" cy="19.5" r="2.3" /></symbol>
+  <symbol id="i-ig" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2"><rect x="3.5" y="3.5" width="17" height="17" rx="5" /><circle cx="12" cy="12" r="4" /></g><circle cx="17.2" cy="6.8" r="1.2" fill="currentColor" /></symbol>
+  <symbol id="i-fb" viewBox="0 0 24 24"><path d="M13.5 21v-7.5h2.6l.4-3h-3V8.6c0-.9.3-1.5 1.6-1.5h1.6V4.4c-.3 0-1.2-.1-2.3-.1-2.3 0-3.9 1.4-3.9 4v2.2H7.9v3h2.6V21z" fill="currentColor" /></symbol>
+  <symbol id="i-in" viewBox="0 0 24 24"><path d="M6.9 9.3V20H3.6V9.3zM5.2 4a1.9 1.9 0 1 1 0 3.8 1.9 1.9 0 0 1 0-3.8zM9 9.3h3.2v1.5c.5-.9 1.6-1.8 3.3-1.8 3.4 0 4 2.2 4 5.1V20h-3.3v-5.2c0-1.2 0-2.8-1.7-2.8s-2 1.3-2 2.7V20H9z" fill="currentColor" /></symbol>
+  <symbol id="i-nav" viewBox="0 0 24 24"><path d="M3 11l18-8-8 18-2-8z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" /></symbol>
+  <symbol id="leaf" viewBox="-30 -130 60 132" overflow="visible"><path d="M0 0C-22-30-20-86 0-128 20-86 22-30 0 0z" /><path d="M0-4V-118" stroke="rgba(255,255,255,.18)" stroke-width="2" fill="none" /></symbol>
+</svg>
+
+<!-- PRELOADER -->
+<div class="loader" id="loader" aria-hidden="true">
+  <div class="loader__inner">
+    <svg class="loader__mark" viewBox="0 0 48 48"><use href="#i-tooth" fill="none" stroke="url(#g-gold)" stroke-width="2" stroke-linejoin="round" /></svg>
+    <p class="loader__brand"><b>Bright</b>Smile</p>
+    <div class="loader__bar"><span></span></div>
+    <p class="loader__pct"><span id="loader-pct">0</span>%</p>
+  </div>
+</div>
+
+<!-- The single 3D layer: the mascot lives here and travels through the page -->
+<canvas id="stage3d" aria-hidden="true"></canvas>
+<div class="progress" aria-hidden="true"><span></span></div>
+<div class="cursor" aria-hidden="true"></div>
+
+<!-- =========================================================
+     NAV
+     ========================================================= -->
+<header class="nav" id="nav">
+  <div class="nav__inner container">
+    <a class="brand" href="#home" aria-label="BrightSmile Dental Care — home">
+      <svg class="brand__mark" viewBox="0 0 48 48" aria-hidden="true">
+        <use href="#i-tooth" fill="none" stroke="url(#g-brand)" stroke-width="2.6" stroke-linejoin="round" />
+        <use href="#i-sparkle" x="10" y="12" width="9" height="9" fill="#F3D27A" />
+      </svg>
+      <span class="brand__text"><span class="brand__name"><b>Bright</b>Smile</span><span class="brand__tag">Dental Care</span></span>
+    </a>
+
+    <nav class="nav__pill" aria-label="Primary">
+      <a href="#about">About</a>
+      <a href="#services">Services</a>
+      <a href="#visit">Your visit</a>
+      <a href="#team">Team</a>
+      <a href="#reviews">Reviews</a>
+      <a href="#faq">FAQ</a>
+      <a href="#contact">Contact</a>
+      <span class="nav__ink" aria-hidden="true"></span>
+    </nav>
+
+    <div class="nav__end">
+      <a class="nav__phone" href="tel:+11234567890"><svg aria-hidden="true"><use href="#i-phone" /></svg>(123) 456-7890</a>
+      <a class="btn btn--gold btn--sm magnetic nav__cta" href="#contact">
+        <svg class="btn__ico" aria-hidden="true"><use href="#i-calendar" /></svg><span>Book Appointment</span>
+      </a>
+    </div>
+
+    <button class="nav__burger" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="menu"><span></span><span></span></button>
+  </div>
+  <div class="menu" id="menu" hidden>
+    <a href="#about">About</a><a href="#services">Services</a><a href="#visit">Your visit</a><a href="#team">Team</a>
+    <a href="#reviews">Reviews</a><a href="#faq">FAQ</a><a href="#contact">Contact</a>
+    <a class="btn btn--gold" href="#contact"><span>Book Appointment</span></a>
+  </div>
+</header>
+
+<main>
+
+<!-- =========================================================
+     1 · HERO
+     ========================================================= -->
+<section class="hero" id="home">
+  <div class="hero__scene" aria-hidden="true">
+    <div class="hero__wall"></div>
+    <div class="hero__window" data-depth="0.12"></div>
+    <svg class="hero__neon" viewBox="-10 -10 220 240" data-depth="0.18">
+      <path class="neon-glow" d="M100 30C80 14 40 10 26 40 12 70 22 110 34 140c10 25 12 60 28 68 16 6 20-28 26-48 4-14 20-14 24 0 6 20 10 54 26 48 16-8 18-43 28-68 12-30 22-70 8-100-14-30-54-26-74-10z" />
+      <path class="neon-line" d="M100 30C80 14 40 10 26 40 12 70 22 110 34 140c10 25 12 60 28 68 16 6 20-28 26-48 4-14 20-14 24 0 6 20 10 54 26 48 16-8 18-43 28-68 12-30 22-70 8-100-14-30-54-26-74-10z" />
+    </svg>
+    <div class="lamp lamp--a" data-depth="0.22"><i class="lamp__cord"></i><i class="lamp__shade"></i><i class="lamp__glow"></i></div>
+    <div class="lamp lamp--b" data-depth="0.16"><i class="lamp__cord"></i><i class="lamp__shade"></i><i class="lamp__glow"></i></div>
+    <div class="lamp lamp--c" data-depth="0.12"><i class="lamp__cord"></i><i class="lamp__shade"></i><i class="lamp__glow"></i></div>
+    <svg class="plant plant--back" viewBox="-160 -260 320 270" data-depth="0.2">
+      <g fill="url(#g-leaf-dark)">
+        <use href="#leaf" transform="rotate(-58) scale(1.2)" /><use href="#leaf" transform="rotate(-30) scale(1.5)" /><use href="#leaf" transform="rotate(-8) scale(1.8)" />
+        <use href="#leaf" transform="rotate(16) scale(1.6)" /><use href="#leaf" transform="rotate(40) scale(1.3)" /><use href="#leaf" transform="rotate(62) scale(1.05)" />
+      </g>
+    </svg>
+    <div class="hero__counter" data-depth="0.25"><i class="hero__led hero__led--top"></i><i class="hero__led hero__led--bot"></i><span class="hero__monitor"></span></div>
+    <svg class="hero__curves" viewBox="0 0 1600 900" preserveAspectRatio="none">
+      <path d="M-40 600C260 520 420 260 760 210s560 40 880-60" />
+      <path d="M-40 760C300 700 520 520 820 560s520 120 820 40" />
+    </svg>
+    <div class="hero__floor"></div>
+    <svg class="plant plant--front" viewBox="-180 -300 360 310" data-depth="0.9">
+      <g fill="url(#g-leaf)">
+        <use href="#leaf" transform="rotate(-70) scale(1.5)" /><use href="#leaf" transform="rotate(-48) scale(1.9)" /><use href="#leaf" transform="rotate(-24) scale(2.2)" />
+        <use href="#leaf" transform="rotate(-4) scale(2.3)" /><use href="#leaf" transform="rotate(18) scale(2)" /><use href="#leaf" transform="rotate(40) scale(1.7)" /><use href="#leaf" transform="rotate(64) scale(1.3)" />
+      </g>
+    </svg>
+    <svg class="plant plant--pot" viewBox="-120 -230 240 300" data-depth="0.6">
+      <g fill="url(#g-leaf)">
+        <use href="#leaf" transform="rotate(-50) scale(1)" /><use href="#leaf" transform="rotate(-22) scale(1.3)" /><use href="#leaf" transform="rotate(4) scale(1.45)" /><use href="#leaf" transform="rotate(28) scale(1.2)" /><use href="#leaf" transform="rotate(54) scale(.95)" />
+      </g>
+      <path d="M-46 0h92l-10 66H-36z" fill="#f4f1e8" /><path d="M-50-6h100v12H-50z" fill="#fff" />
+    </svg>
+    <div class="hero__vignette"></div>
+  </div>
+
+  <div class="hero__grid container">
+    <div class="hero__copy">
+      <span class="hero__dash" aria-hidden="true"></span>
+      <h1 class="hero__title" data-split>
+        Healthy <span class="grad-gold">Smile,</span><br />
+        Happy <span class="hero__life">Life!<svg class="hero__swoosh" viewBox="0 0 200 40" preserveAspectRatio="none" aria-hidden="true"><path d="M6 10C40 36 140 40 194 6" fill="none" stroke="url(#g-gold)" stroke-width="5" stroke-linecap="round" /></svg></span>
+      </h1>
+      <p class="hero__lead" data-hero-fade>Gentle, modern dentistry for the whole family, in a clinic that feels calm from the moment you walk in.</p>
+      <div class="hero__actions" data-hero-fade>
+        <a class="btn btn--gold btn--lg magnetic" href="#contact"><span>Book Appointment</span><svg class="btn__ico btn__ico--arrow" aria-hidden="true"><use href="#i-arrow" /></svg></a>
+        <button class="play" type="button" data-video-src="">
+          <span class="play__ring"><svg aria-hidden="true"><use href="#i-play" /></svg></span>
+          <span>Watch Video</span>
+        </button>
+      </div>
+      <div class="hero__trust" data-hero-fade>
+        <span class="faces" aria-hidden="true"><i>A</i><i>M</i><i>J</i><i>+</i></span>
+        <span><b><svg class="star" aria-hidden="true"><use href="#i-star" /></svg> 4.9</b> Google rating · <b>25K+</b> happy smiles</span>
+      </div>
+    </div>
+
+    <div class="hero__stage">
+      <div class="hero__pedestal m-anchor" data-mascot="hero" data-tooth data-ratio="1.5" role="img" aria-label="BrightSmile's mascot standing on a giant tooth">
+        <img class="m-fallback m-fallback--tooth" src="assets/mascot-tooth.webp" alt="" />
+      </div>
+      <p class="m-bubble m-bubble--hero" data-bubble="hero">Hi! Ready for a brighter smile? <span aria-hidden="true">✨</span></p>
+    </div>
+
+    <ul class="hero__services" aria-label="Featured services">
+      <li><a class="glass-card" href="#services" data-svc-link="0" data-hero-card>
+        <span class="glass-card__ico"><svg viewBox="0 0 48 48" aria-hidden="true"><use href="#i-tooth" fill="url(#g-green)" /></svg></span>
+        <span class="glass-card__txt">Cosmetic Dentistry</span>
+        <span class="glass-card__go"><svg aria-hidden="true"><use href="#i-arrow" /></svg></span>
+      </a></li>
+      <li><a class="glass-card" href="#services" data-svc-link="1" data-hero-card>
+        <span class="glass-card__ico"><svg viewBox="0 0 48 48" aria-hidden="true" fill="url(#g-green)"><use href="#i-implant" /></svg></span>
+        <span class="glass-card__txt">Dental Implants</span>
+        <span class="glass-card__go"><svg aria-hidden="true"><use href="#i-arrow" /></svg></span>
+      </a></li>
+      <li><a class="glass-card" href="#services" data-svc-link="2" data-hero-card>
+        <span class="glass-card__ico"><svg viewBox="0 0 48 48" aria-hidden="true" fill="#2F5A2A" color="#2F5A2A"><use href="#i-braces" /></svg></span>
+        <span class="glass-card__txt">Orthodontics</span>
+        <span class="glass-card__go"><svg aria-hidden="true"><use href="#i-arrow" /></svg></span>
+      </a></li>
+    </ul>
+  </div>
+
+  <div class="band" aria-hidden="true">
+    <div class="band__track">
+      <div class="band__row"><span>Cosmetic Dentistry</span><svg><use href="#i-sparkle" /></svg><span>Dental Implants</span><svg><use href="#i-sparkle" /></svg><span>Orthodontics</span><svg><use href="#i-sparkle" /></svg><span>Teeth Whitening</span><svg><use href="#i-sparkle" /></svg><span>Family Care</span><svg><use href="#i-sparkle" /></svg><span>3D Smile Scans</span><svg><use href="#i-sparkle" /></svg></div>
+      <div class="band__row"><span>Cosmetic Dentistry</span><svg><use href="#i-sparkle" /></svg><span>Dental Implants</span><svg><use href="#i-sparkle" /></svg><span>Orthodontics</span><svg><use href="#i-sparkle" /></svg><span>Teeth Whitening</span><svg><use href="#i-sparkle" /></svg><span>Family Care</span><svg><use href="#i-sparkle" /></svg><span>3D Smile Scans</span><svg><use href="#i-sparkle" /></svg></div>
+    </div>
+  </div>
+</section>
+
+<!-- =========================================================
+     2 · ABOUT
+     ========================================================= -->
+<section class="screen about" id="about">
+  <div class="container screen__grid about__grid">
+    <div class="about__stage" data-reveal>
+      <div class="arch">
+        <svg class="arch__neon" viewBox="-10 -10 220 240" aria-hidden="true"><path d="M100 30C80 14 40 10 26 40 12 70 22 110 34 140c10 25 12 60 28 68 16 6 20-28 26-48 4-14 20-14 24 0 6 20 10 54 26 48 16-8 18-43 28-68 12-30 22-70 8-100-14-30-54-26-74-10z" /></svg>
+        <span class="arch__glow" aria-hidden="true"></span>
+        <div class="buddy buddy--arch">
+          <p class="m-bubble" data-bubble="about">Welcome in! Let me show you around.</p>
+          <div class="m-anchor buddy__anchor" data-mascot="about" data-yaw="22"><img class="m-fallback" src="assets/mascot.webp" alt="" /></div>
+        </div>
+      </div>
+      <div class="chip-float chip-float--a" data-float="-14">
+        <span class="chip-float__ico chip-float__ico--gold"><svg aria-hidden="true"><use href="#i-calendar" /></svg></span>
+        <span><b><span data-count="15">15</span>+</b><small>Years of gentle care</small></span>
+      </div>
+      <div class="chip-float chip-float--b" data-float="12">
+        <span class="chip-float__ico"><svg aria-hidden="true"><use href="#i-star" /></svg></span>
+        <span><b>4.9 / 5</b><small>Google rating</small></span>
+      </div>
+    </div>
+
+    <div class="about__content">
+      <span class="eyebrow" data-reveal><i></i>About BrightSmile</span>
+      <h2 class="h2" data-split>A calm, modern clinic where every <span class="hl">smile feels at home.</span></h2>
+      <p class="lead" data-reveal>For more than fifteen years we've paired the latest dental technology with an unhurried, gentle approach. From a child's first check-up to a full smile makeover, you'll always know what's happening and why.</p>
+      <ul class="ticks" data-stagger>
+        <li><span class="ticks__ico"><svg viewBox="0 0 48 48" aria-hidden="true" fill="currentColor"><use href="#i-scan" /></svg></span><div><h3>Digital &amp; 3D imaging</h3><p>Precise, low-radiation diagnostics.</p></div></li>
+        <li><span class="ticks__ico"><svg viewBox="0 0 48 48" aria-hidden="true" fill="currentColor"><use href="#i-heart" /></svg></span><div><h3>Comfort-first care</h3><p>Numbing gel, calm rooms, no rushing.</p></div></li>
+        <li><span class="ticks__ico"><svg viewBox="0 0 48 48" aria-hidden="true" fill="currentColor"><use href="#i-kid" /></svg></span><div><h3>Family friendly</h3><p>Every age, under one roof.</p></div></li>
+        <li><span class="ticks__ico"><svg viewBox="0 0 48 48" aria-hidden="true" fill="currentColor"><use href="#i-chat" /></svg></span><div><h3>Clear pricing</h3><p>Upfront plans before treatment.</p></div></li>
+      </ul>
+      <div class="cta-row" data-reveal>
+        <a class="btn btn--dark magnetic" href="#services"><span>Explore treatments</span><svg class="btn__ico btn__ico--arrow" aria-hidden="true"><use href="#i-arrow" /></svg></a>
+        <a class="link-phone" href="tel:+11234567890"><span class="link-phone__ico"><svg aria-hidden="true"><use href="#i-phone" /></svg></span><span><small>Call us anytime</small>(123) 456-7890</span></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- =========================================================
+     3 · SERVICES — treatment picker
+     ========================================================= -->
+<section class="screen services" id="services">
+  <div class="container screen__grid services__grid">
+    <div class="services__main">
+      <span class="eyebrow" data-reveal><i></i>Our Services</span>
+      <h2 class="h2" data-split>Every treatment, <span class="hl">explained before it starts.</span></h2>
+      <p class="lead" data-reveal>Tap a treatment to see how long it takes, how many visits you'll need and exactly what you'll feel.</p>
+
+      <div class="tiles" role="tablist" aria-label="Treatments" data-stagger>
+        <button class="tile is-active" role="tab" aria-selected="true" aria-controls="svc-panel" data-svc="0" style="--c1:#b9c8a6;--c2:#6f875f;--tile-ink:#fff">
+          <span class="tile__card"><i class="tile__hook"></i><svg viewBox="0 0 48 48" aria-hidden="true"><use href="#i-tooth" fill="currentColor" /></svg></span>
+          <span class="tile__label">Cosmetic dentistry</span>
+        </button>
+        <button class="tile" role="tab" aria-selected="false" aria-controls="svc-panel" data-svc="1" style="--c1:#4f7a45;--c2:#22381f;--tile-ink:#f1d07e" tabindex="-1">
+          <span class="tile__card"><i class="tile__hook"></i><svg viewBox="0 0 48 48" aria-hidden="true" fill="currentColor"><use href="#i-implant" /></svg></span>
+          <span class="tile__label">Dental implants</span>
+        </button>
+        <button class="tile" role="tab" aria-selected="false" aria-controls="svc-panel" data-svc="2" style="--c1:#e3ecd6;--c2:#a8bd91;--tile-ink:#2f5a2a" tabindex="-1">
+          <span class="tile__card"><i class="tile__hook"></i><svg viewBox="0 0 48 48" aria-hidden="true" fill="currentColor" color="currentColor"><use href="#i-braces" /></svg></span>
+          <span class="tile__label">Orthodontics</span>
+        </button>
+        <button class="tile" role="tab" aria-selected="false" aria-controls="svc-panel" data-svc="3" style="--c1:#f8e3a4;--c2:#d4a043;--tile-ink:#3b2f12" tabindex="-1">
+          <span class="tile__card"><i class="tile__hook"></i><svg viewBox="0 0 48 48" aria-hidden="true" fill="currentColor" color="currentColor"><use href="#i-whiten" /></svg></span>
+          <span class="tile__label">Teeth whitening</span>
+        </button>
+        <button class="tile" role="tab" aria-selected="false" aria-controls="svc-panel" data-svc="4" style="--c1:#f6f1e5;--c2:#d6ccb5;--tile-ink:#34502f" tabindex="-1">
+          <span class="tile__card"><i class="tile__hook"></i><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-shield" /></svg></span>
+          <span class="tile__label">General check-up</span>
+        </button>
+        <button class="tile" role="tab" aria-selected="false" aria-controls="svc-panel" data-svc="5" style="--c1:#f3cf9b;--c2:#c98a3e;--tile-ink:#fff" tabindex="-1">
+          <span class="tile__card"><i class="tile__hook"></i><svg viewBox="0 0 48 48" aria-hidden="true" fill="currentColor" color="currentColor"><use href="#i-kid" /></svg></span>
+          <span class="tile__label">Kids' dentistry</span>
+        </button>
+      </div>
+
+      <div class="svc-panel" id="svc-panel" role="tabpanel" data-reveal>
+        <div class="svc-panel__inner">
+          <div class="svc-panel__main">
+            <h3 class="svc-panel__title" data-f="title">Cosmetic dentistry</h3>
+            <p class="svc-panel__desc" data-f="desc">Veneers, bonding and smile design tailored to your face, with a digital preview before anything changes.</p>
+            <dl class="svc-panel__meta">
+              <div><dt>Time in chair</dt><dd><svg aria-hidden="true"><use href="#i-clock" /></svg><span data-f="time">60–90 min</span></dd></div>
+              <div><dt>Visits</dt><dd><svg aria-hidden="true"><use href="#i-calendar" /></svg><span data-f="visits">1–2</span></dd></div>
+            </dl>
+          </div>
+          <div class="svc-panel__side">
+            <p class="svc-panel__label">What to expect</p>
+            <ul class="svc-panel__list" data-f="expect">
+              <li>A digital smile preview on day one</li>
+              <li>Shade-matched to your natural teeth</li>
+              <li>Little to no drilling for bonding</li>
+            </ul>
+            <a class="btn btn--dark btn--sm" href="#contact" data-f="cta"><span>Book cosmetic dentistry</span><svg class="btn__ico btn__ico--arrow" aria-hidden="true"><use href="#i-arrow" /></svg></a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="buddy services__buddy">
+      <p class="m-bubble" data-bubble="services">Cosmetic dentistry? Great pick!</p>
+      <div class="m-anchor buddy__anchor" data-mascot="services" data-yaw="-26"><img class="m-fallback" src="assets/mascot.webp" alt="" /></div>
+    </div>
+  </div>
+</section>
+
+<!-- =========================================================
+     4 · YOUR VISIT — pinned step cards
+     ========================================================= -->
+<section class="journey" id="visit">
+  <div class="journey__pin">
+    <div class="container journey__grid">
+      <div class="journey__side">
+        <span class="eyebrow" data-reveal><i></i>Your visit</span>
+        <h2 class="h2" data-split>Your smile journey in <span class="hl">four easy steps.</span></h2>
+        <p class="lead" data-reveal>No surprises. Here's the whole visit, in order.</p>
+        <ol class="steps-bar" aria-hidden="true">
+          <li class="is-on"><span class="steps-bar__line"><i></i></span><span>Consult</span></li>
+          <li><span class="steps-bar__line"><i></i></span><span>Scan</span></li>
+          <li><span class="steps-bar__line"><i></i></span><span>Treat</span></li>
+          <li><span class="steps-bar__line"><i></i></span><span>Smile</span></li>
+        </ol>
+        <div class="buddy journey__buddy">
+          <p class="m-bubble" data-bubble="journey">First, we just talk. No tools yet!</p>
+          <div class="m-anchor buddy__anchor" data-mascot="journey" data-yaw="24"><img class="m-fallback" src="assets/mascot.webp" alt="" /></div>
+        </div>
+      </div>
+
+      <div class="journey__viewport">
+        <ol class="journey__track">
+          <li class="vcard" data-say="First, we just talk. No tools yet!">
+            <span class="vcard__num">1</span>
+            <h3>Friendly consultation</h3>
+            <p>A relaxed first visit with a full check-up, digital X-rays and time for every question you have.</p>
+            <p class="vcard__note"><svg aria-hidden="true"><use href="#i-clock" /></svg>About 30 minutes, sitting upright and comfy.</p>
+          </li>
+          <li class="vcard" data-say="Say cheese! It's just a quick scan.">
+            <span class="vcard__num">2</span>
+            <h3>3D smile scan</h3>
+            <p>No messy moulds. Our scanner maps your teeth in minutes and shows you a preview of the result.</p>
+            <p class="vcard__note"><svg aria-hidden="true"><use href="#i-scan" /></svg>You see everything we see, on the screen.</p>
+          </li>
+          <li class="vcard" data-say="Numbing gel first. Always.">
+            <span class="vcard__num">3</span>
+            <h3>Gentle treatment</h3>
+            <p>Minimally invasive care with numbing gel, calm music and breaks whenever you want them.</p>
+            <p class="vcard__note"><svg aria-hidden="true"><use href="#i-heart" /></svg>Raise a hand anytime and we pause.</p>
+          </li>
+          <li class="vcard" data-say="Look at that smile! You're glowing!">
+            <span class="vcard__num">4</span>
+            <h3>Bright results</h3>
+            <p>Leave with a healthier, brighter smile and a simple aftercare plan to keep it shining.</p>
+            <p class="vcard__note"><svg aria-hidden="true"><use href="#i-check" /></svg>We check in a few days later to see how you feel.</p>
+          </li>
+        </ol>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- =========================================================
+     5 · WHY US (dark)
+     ========================================================= -->
+<section class="screen why" id="why">
+  <div class="lines" aria-hidden="true"></div>
+  <div class="container screen__grid why__grid">
+    <div class="buddy why__buddy">
+      <p class="m-bubble" data-bubble="why">Numbers don't lie, friends!</p>
+      <div class="m-anchor buddy__anchor" data-mascot="why" data-yaw="26"><img class="m-fallback" src="assets/mascot.webp" alt="" /></div>
+    </div>
+    <div class="why__main">
+      <span class="eyebrow eyebrow--light" data-reveal><i></i>Why BrightSmile</span>
+      <h2 class="h2 h2--light" data-split>Why thousands of families <span class="hl hl--gold">trust their smiles</span> to us.</h2>
+      <p class="lead lead--light" data-reveal>Experienced specialists, modern technology and a genuinely gentle approach, so every visit feels easy.</p>
+      <div class="stats-bar" data-stagger>
+        <div class="stat"><b><span data-count="15">15</span>+</b><span>Years of experience</span></div>
+        <div class="stat"><b><span data-count="25">25</span>K+</b><span>Happy patients</span></div>
+        <div class="stat"><b><span data-count="4.9" data-decimals="1">4.9</span></b><span>Google rating</span></div>
+        <div class="stat"><b><span data-count="6">6</span></b><span>Specialist services</span></div>
+      </div>
+      <div class="why__features" data-stagger>
+        <div class="why-feature"><span><svg viewBox="0 0 48 48" aria-hidden="true" fill="currentColor"><use href="#i-scan" /></svg></span><h3>Advanced technology</h3><p>Digital X-rays and 3D scans for precise care.</p></div>
+        <div class="why-feature"><span><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-clock" /></svg></span><h3>Flexible hours</h3><p>Early, late and Saturday appointments.</p></div>
+        <div class="why-feature"><span><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-shield" /></svg></span><h3>Strict hygiene</h3><p>Sterilisation you can see and trust.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- =========================================================
+     6 · TEAM
+     ========================================================= -->
+<section class="screen team" id="team">
+  <div class="container screen__grid team__grid">
+    <div class="team__main">
+      <span class="eyebrow" data-reveal><i></i>Our Team</span>
+      <h2 class="h2" data-split>Meet the people behind <span class="hl">your smile.</span></h2>
+      <p class="lead" data-reveal>You see the same dentist every visit, so you never have to repeat your story.</p>
+      <ul class="doctors" data-stagger>
+        <li class="doctor">
+          <span class="monogram" aria-hidden="true">EC</span>
+          <div class="doctor__info">
+            <h3>Dr. Emily Carter</h3>
+            <p class="doctor__role">Lead cosmetic dentist</p>
+            <p class="doctor__bio">Loves a natural-looking smile makeover and explains every step.</p>
+          </div>
+          <div class="doctor__side">
+            <ul class="tags"><li>Veneers</li><li>Smile design</li></ul>
+            <a class="link-arrow" href="#contact" data-doctor="Dr. Emily Carter">Book with Emily <svg aria-hidden="true"><use href="#i-arrow" /></svg></a>
+          </div>
+        </li>
+        <li class="doctor">
+          <span class="monogram" aria-hidden="true">JP</span>
+          <div class="doctor__info">
+            <h3>Dr. James Patel</h3>
+            <p class="doctor__role">Orthodontist</p>
+            <p class="doctor__bio">Straightens smiles with braces and clear aligners, patiently.</p>
+          </div>
+          <div class="doctor__side">
+            <ul class="tags"><li>Aligners</li><li>Braces</li></ul>
+            <a class="link-arrow" href="#contact" data-doctor="Dr. James Patel">Book with James <svg aria-hidden="true"><use href="#i-arrow" /></svg></a>
+          </div>
+        </li>
+        <li class="doctor">
+          <span class="monogram" aria-hidden="true">SR</span>
+          <div class="doctor__info">
+            <h3>Dr. Sofia Romero</h3>
+            <p class="doctor__role">Implant specialist</p>
+            <p class="doctor__bio">Calm hands for complex cases and anxious patients alike.</p>
+          </div>
+          <div class="doctor__side">
+            <ul class="tags"><li>Implants</li><li>Nervous patients</li></ul>
+            <a class="link-arrow" href="#contact" data-doctor="Dr. Sofia Romero">Book with Sofia <svg aria-hidden="true"><use href="#i-arrow" /></svg></a>
+          </div>
+        </li>
+      </ul>
+    </div>
+    <div class="buddy team__buddy">
+      <p class="m-bubble" data-bubble="team">Meet my favourite humans!</p>
+      <div class="m-anchor buddy__anchor" data-mascot="team" data-yaw="-26"><img class="m-fallback" src="assets/mascot.webp" alt="" /></div>
+    </div>
+  </div>
+</section>
+
+<!-- =========================================================
+     7 · REVIEWS (dark) — slider
+     ========================================================= -->
+<section class="screen reviews" id="reviews">
+  <div class="lines" aria-hidden="true"></div>
+  <div class="container screen__grid reviews__grid">
+    <div class="buddy reviews__buddy">
+      <p class="m-bubble" data-bubble="reviews">People say the nicest things!</p>
+      <div class="m-anchor buddy__anchor" data-mascot="reviews" data-yaw="24"><img class="m-fallback" src="assets/mascot.webp" alt="" /></div>
+    </div>
+    <div class="reviews__main">
+      <span class="eyebrow eyebrow--light" data-reveal><i></i>Reviews</span>
+      <h2 class="h2 h2--light" data-split>Smiles that <span class="hl hl--gold">speak for themselves.</span></h2>
+      <div class="reviews__bar" data-reveal>
+        <div class="rating">
+          <b><span data-count="4.9" data-decimals="1">4.9</span></b>
+          <div><span class="stars" aria-label="5 out of 5 stars"><svg><use href="#i-star" /></svg><svg><use href="#i-star" /></svg><svg><use href="#i-star" /></svg><svg><use href="#i-star" /></svg><svg><use href="#i-star" /></svg></span><small>Average Google rating</small></div>
+        </div>
+        <div class="slider-nav">
+          <button class="slider-btn" type="button" data-dir="-1" aria-label="Previous review"><svg aria-hidden="true"><use href="#i-arrow" /></svg></button>
+          <button class="slider-btn" type="button" data-dir="1" aria-label="Next review"><svg aria-hidden="true"><use href="#i-arrow" /></svg></button>
+        </div>
+      </div>
+      <div class="slider" data-reveal>
+        <div class="slider__track">
+          <figure class="review"><span class="stars"><svg><use href="#i-star" /></svg><svg><use href="#i-star" /></svg><svg><use href="#i-star" /></svg><svg><use href="#i-star" /></svg><svg><use href="#i-star" /></svg></span><blockquote>"I used to dread the dentist. The team made me feel completely at ease. I actually look forward to my visits now."</blockquote><figcaption><b>Sarah K.</b><span>Cosmetic patient</span></figcaption></figure>
+          <figure class="review"><span class="stars"><svg><use href="#i-star" /></svg><svg><use href="#i-star" /></svg><svg><use href="#i-star" /></svg><svg><use href="#i-star" /></svg><svg><use href="#i-star" /></svg></span><blockquote>"My implant looks and feels completely natural. Clear pricing, no surprises, and amazing aftercare."</blockquote><figcaption><b>David M.</b><span>Implant patient</span></figcaption></figure>
+          <figure class="review"><span class="stars"><svg><use href="#i-star" /></svg><svg><use href="#i-star" /></svg><svg><use href="#i-star" /></svg><svg><use href="#i-star" /></svg><svg><use href="#i-star" /></svg></span><blockquote>"Both my kids love coming here. Calm rooms, patient staff, and stickers at the end. Total win."</blockquote><figcaption><b>Priya L.</b><span>Parent of two</span></figcaption></figure>
+          <figure class="review"><span class="stars"><svg><use href="#i-star" /></svg><svg><use href="#i-star" /></svg><svg><use href="#i-star" /></svg><svg><use href="#i-star" /></svg><svg><use href="#i-star" /></svg></span><blockquote>"The 3D scan showed me my new smile before we even started. Six months later, I can't stop smiling."</blockquote><figcaption><b>Tom R.</b><span>Aligner patient</span></figcaption></figure>
+          <figure class="review"><span class="stars"><svg><use href="#i-star" /></svg><svg><use href="#i-star" /></svg><svg><use href="#i-star" /></svg><svg><use href="#i-star" /></svg><svg><use href="#i-star" /></svg></span><blockquote>"Whitening results were incredible and my teeth weren't sensitive at all. Highly recommend!"</blockquote><figcaption><b>Chris W.</b><span>Whitening patient</span></figcaption></figure>
+          <figure class="review"><span class="stars"><svg><use href="#i-star" /></svg><svg><use href="#i-star" /></svg><svg><use href="#i-star" /></svg><svg><use href="#i-star" /></svg><svg><use href="#i-star" /></svg></span><blockquote>"From reception to treatment, everything felt premium yet relaxed. My new go-to dentist."</blockquote><figcaption><b>Marco G.</b><span>Veneers patient</span></figcaption></figure>
+        </div>
+      </div>
+    </div>
+  </div>
+  <svg class="wave" viewBox="0 0 1440 90" preserveAspectRatio="none" aria-hidden="true"><path d="M0 46c120-30 240-30 360 0s240 30 360 0 240-30 360 0 240 30 360 0V90H0z" /></svg>
+</section>
+
+<!-- =========================================================
+     8 · FAQ
+     ========================================================= -->
+<section class="screen faq" id="faq">
+  <div class="container screen__grid faq__grid">
+    <div class="faq__main">
+      <span class="eyebrow" data-reveal><i></i>FAQ</span>
+      <h2 class="h2" data-split>Questions? <span class="hl">We've got answers.</span></h2>
+      <div class="accordion" data-stagger>
+        <details class="acc" open data-say="Totally fair question. Comfort comes first here!">
+          <summary><span>Is treatment at BrightSmile painful?</span><i><svg aria-hidden="true"><use href="#i-plus" /></svg></i></summary>
+          <div class="acc__body"><div><p>We use a comfort-first approach: numbing gel before injections, modern minimally invasive techniques and calm, quiet rooms. Most patients tell us it was far easier than they expected.</p></div></div>
+        </details>
+        <details class="acc" data-say="We'll check your cover for you.">
+          <summary><span>Do you accept dental insurance?</span><i><svg aria-hidden="true"><use href="#i-plus" /></svg></i></summary>
+          <div class="acc__body"><div><p>We work with most major insurance providers and will help you understand your coverage before treatment begins. Flexible payment plans are also available.</p></div></div>
+        </details>
+        <details class="acc" data-say="Twice a year keeps me sparkly!">
+          <summary><span>How often should I have a check-up?</span><i><svg aria-hidden="true"><use href="#i-plus" /></svg></i></summary>
+          <div class="acc__body"><div><p>For most people, every six months is ideal. We'll recommend a schedule that suits your oral health and lifestyle.</p></div></div>
+        </details>
+        <details class="acc" data-say="Kids are my favourite visitors!">
+          <summary><span>Do you treat children?</span><i><svg aria-hidden="true"><use href="#i-plus" /></svg></i></summary>
+          <div class="acc__body"><div><p>Absolutely. Our kids' dentistry is designed to be fun and fear-free, helping little ones build healthy habits from their very first visit.</p></div></div>
+        </details>
+        <details class="acc" data-say="Call us, we'll squeeze you in.">
+          <summary><span>Can I book an emergency appointment?</span><i><svg aria-hidden="true"><use href="#i-plus" /></svg></i></summary>
+          <div class="acc__body"><div><p>Yes. Call us and we'll do our best to see you the same day for urgent issues such as pain, swelling or a broken tooth.</p></div></div>
+        </details>
+      </div>
+    </div>
+    <div class="buddy faq__buddy">
+      <p class="m-bubble" data-bubble="faq">Totally fair question. Comfort comes first here!</p>
+      <div class="m-anchor buddy__anchor" data-mascot="faq" data-yaw="-24"><img class="m-fallback" src="assets/mascot.webp" alt="" /></div>
+    </div>
+  </div>
+</section>
+
+<!-- =========================================================
+     9 · BOOK
+     ========================================================= -->
+<section class="screen book" id="contact">
+  <div class="lines" aria-hidden="true"></div>
+  <div class="container book__grid">
+    <div class="book__intro">
+      <span class="eyebrow eyebrow--light" data-reveal><i></i>Book a visit</span>
+      <h2 class="h2 h2--light" data-split>Ready for your <span class="hl hl--gold">brightest smile?</span></h2>
+      <p class="lead lead--light" data-reveal>Booking takes under a minute. We'll confirm your time within one working day.</p>
+      <fieldset class="comfort" data-reveal>
+        <legend>Make your visit comfier <em>(optional)</em></legend>
+        <div class="comfort__chips">
+          <button type="button" class="chip" aria-pressed="false">Noise-cancelling headphones</button>
+          <button type="button" class="chip" aria-pressed="false">Cosy blanket</button>
+          <button type="button" class="chip" aria-pressed="false">Sunglasses for the light</button>
+          <button type="button" class="chip" aria-pressed="false">Extra numbing gel</button>
+          <button type="button" class="chip" aria-pressed="false">Talk me through it</button>
+          <button type="button" class="chip" aria-pressed="false">Quiet room</button>
+        </div>
+      </fieldset>
+    </div>
+
+    <div class="buddy book__buddy">
+      <p class="m-bubble" data-bubble="book">Pick your comfort extras, I'll pack them!</p>
+      <div class="m-anchor buddy__anchor" data-mascot="book" data-yaw="28"><img class="m-fallback" src="assets/mascot.webp" alt="" /></div>
+    </div>
+
+    <form class="form" id="book-form" novalidate data-reveal>
+      <h3 class="form__title">Request an appointment</h3>
+      <div class="form__row">
+        <label class="field"><span>Full name</span><input name="name" type="text" autocomplete="name" placeholder="Jane Smith" required /></label>
+        <label class="field"><span>Phone</span><input name="phone" type="tel" autocomplete="tel" placeholder="(123) 456-7890" required /></label>
+      </div>
+      <label class="field"><span>Email</span><input name="email" type="email" autocomplete="email" placeholder="jane@email.com" required /></label>
+      <div class="form__row">
+        <label class="field"><span>Treatment</span>
+          <select name="service" required>
+            <option value="" disabled selected>Select a treatment</option>
+            <option>Cosmetic dentistry</option><option>Dental implants</option><option>Orthodontics</option>
+            <option>Teeth whitening</option><option>General check-up</option><option>Kids' dentistry</option>
+          </select>
+        </label>
+        <label class="field"><span>Preferred date</span><input name="date" type="date" required /></label>
+      </div>
+      <label class="field"><span>Notes <em>(optional)</em></span><input name="notes" type="text" placeholder="Anything we should know?" /></label>
+      <button class="btn btn--gold btn--lg btn--block" type="submit"><span>Request appointment</span><svg class="btn__ico btn__ico--arrow" aria-hidden="true"><use href="#i-arrow" /></svg></button>
+      <p class="form__note" role="status" aria-live="polite"></p>
+    </form>
+  </div>
+</section>
+
+<!-- =========================================================
+     10 · VISIT US + FOOTER
+     ========================================================= -->
+<section class="screen location" id="location">
+  <div class="container location__top">
+    <div class="location__intro">
+      <span class="eyebrow" data-reveal><i></i>Visit us</span>
+      <h2 class="h2" data-split>Come say <span class="hl">hello.</span></h2>
+      <p class="lead" data-reveal>Right in the heart of town, easy to find and easy to reach.</p>
+      <div class="cta-row" data-reveal>
+        <a class="btn btn--dark" href="#" data-directions><svg class="btn__ico" aria-hidden="true"><use href="#i-nav" /></svg><span>Get directions</span></a>
+        <a class="btn btn--line" href="tel:+11234567890"><svg class="btn__ico" aria-hidden="true"><use href="#i-phone" /></svg><span>(123) 456-7890</span></a>
+      </div>
+    </div>
+    <div class="buddy location__buddy">
+      <p class="m-bubble" data-bubble="location">See you soon!</p>
+      <div class="m-anchor buddy__anchor" data-mascot="location" data-yaw="-22"><img class="m-fallback" src="assets/mascot.webp" alt="" /></div>
+    </div>
+  </div>
+
+  <div class="container location__cards" data-stagger>
+    <article class="card hours">
+      <header class="card__head"><h3>Opening hours</h3><span class="open-badge" data-open-badge>Open today</span></header>
+      <dl class="hours__list" data-hours>
+        <div data-day="1"><dt>Monday</dt><dd>8:00 am – 7:00 pm</dd></div>
+        <div data-day="2"><dt>Tuesday</dt><dd>8:00 am – 7:00 pm</dd></div>
+        <div data-day="3"><dt>Wednesday</dt><dd>8:00 am – 7:00 pm</dd></div>
+        <div data-day="4"><dt>Thursday</dt><dd>8:00 am – 7:00 pm</dd></div>
+        <div data-day="5"><dt>Friday</dt><dd>8:00 am – 7:00 pm</dd></div>
+        <div data-day="6"><dt>Saturday</dt><dd>9:00 am – 2:00 pm</dd></div>
+        <div data-day="0"><dt>Sunday</dt><dd>Closed</dd></div>
+      </dl>
+    </article>
+    <article class="card map" aria-label="Map showing BrightSmile on Smile Avenue">
+      <svg class="map__svg" viewBox="0 0 400 260" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+        <rect width="400" height="260" fill="#2b4527" />
+        <path d="M-10 70H410M-10 178C90 170 180 200 270 186S380 150 410 160" stroke="#466a3e" stroke-width="16" fill="none" />
+        <path d="M120-10V270M300-10L276 270" stroke="#466a3e" stroke-width="12" fill="none" />
+        <path d="M-10 70H410M120-10V270" stroke="#5c8352" stroke-width="2" stroke-dasharray="6 8" fill="none" />
+        <rect x="150" y="98" width="96" height="50" rx="10" fill="none" stroke="#7d9369" stroke-dasharray="4 5" />
+        <text x="198" y="128" fill="#a9ba95" font-family="DM Sans, sans-serif" font-size="12" text-anchor="middle">Smile Park</text>
+        <text x="20" y="62" fill="#a9ba95" font-family="DM Sans, sans-serif" font-size="11">Smile Avenue</text>
+        <text x="112" y="240" fill="#a9ba95" font-family="DM Sans, sans-serif" font-size="11" transform="rotate(-90 112 240)">Oak Street</text>
+      </svg>
+      <span class="map__pin"><svg aria-hidden="true"><use href="#i-tooth" /></svg></span>
+      <span class="map__label">BrightSmile</span>
+    </article>
+    <article class="card talk">
+      <h3>Talk to us</h3>
+      <a class="talk__row" href="tel:+11234567890"><span><svg aria-hidden="true"><use href="#i-phone" /></svg></span><span><small>Call or text</small>(123) 456-7890</span></a>
+      <a class="talk__row" href="mailto:hello@brightsmile.example"><span><svg aria-hidden="true"><use href="#i-mail" /></svg></span><span><small>Email</small>hello@brightsmile.example</span></a>
+      <p class="talk__row"><span><svg aria-hidden="true"><use href="#i-pin" /></svg></span><span><small>Address</small>123 Smile Avenue, Your City</span></p>
+    </article>
+  </div>
+
+  <footer class="footer container">
+    <a class="brand brand--dark" href="#home" aria-label="BrightSmile Dental Care">
+      <svg class="brand__mark" viewBox="0 0 48 48" aria-hidden="true"><use href="#i-tooth" fill="none" stroke="url(#g-brand)" stroke-width="2.6" stroke-linejoin="round" /><use href="#i-sparkle" x="10" y="12" width="9" height="9" fill="#F3D27A" /></svg>
+      <span class="brand__text"><span class="brand__name"><b>Bright</b>Smile</span><span class="brand__tag">Dental Care</span></span>
+    </a>
+    <nav class="footer__links" aria-label="Footer"><a href="#services">Services</a><a href="#visit">Your visit</a><a href="#team">Team</a><a href="#faq">FAQ</a><a href="#contact">Book</a></nav>
+    <div class="socials"><a href="#" aria-label="Instagram"><svg><use href="#i-ig" /></svg></a><a href="#" aria-label="Facebook"><svg><use href="#i-fb" /></svg></a><a href="#" aria-label="LinkedIn"><svg><use href="#i-in" /></svg></a></div>
+    <p class="footer__copy">© <span id="year">2026</span> BrightSmile Dental Care</p>
+  </footer>
+</section>
+
+</main>
+
+<!-- Video modal -->
+<dialog class="video-modal" id="video-modal" aria-label="Clinic tour video">
+  <button class="video-modal__close" type="button" aria-label="Close video"><svg><use href="#i-plus" /></svg></button>
+  <div class="video-modal__frame"><div class="video-modal__empty"><img src="assets/mascot.webp" alt="" width="110" /><p>Our clinic tour video is coming soon.</p></div></div>
+</dialog>
+
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js" defer></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/ScrollTrigger.min.js" defer></script>
+<script src="https://cdn.jsdelivr.net/npm/lenis@1.3.4/dist/lenis.min.js" defer></script>
+<script type="module" src="js/main.js"></script>
+</body>
+</html>
